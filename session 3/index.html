@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Superhero Slideshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+    }
+
+    .main-slide {
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .main-slide img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: black;
+      color: white;
+      font-size: 2rem;
+      padding: 15px;
+      cursor: pointer;
+      z-index: 1;
+      border: none;
+      border-radius: 50%;
+      opacity: 0.9;
+    }
+
+    .arrow.left {
+      left: 20px;
+    }
+
+    .arrow.right {
+      right: 20px;
+    }
+
+    .thumbnails {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      width: 100%;
+    }
+
+    .thumbnail-img {
+      width: 100px;
+      height: 60px;
+      object-fit: cover;
+      opacity: 0.6;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .thumbnail-img.active {
+      opacity: 1;
+      border-color: white;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-slide">
+    <button class="arrow left" onclick="prevSlide()">&#8592;</button>
+    <img id="mainImage" src="ironman.webp" alt="Main Superhero" />
+    <button class="arrow right" onclick="nextSlide()">&#8594;</button>
+  </div>
+
+  <div class="thumbnails">
+    <img src="ironman.webp" class="thumbnail-img active" onclick="setImage(0)" alt="Iron Man" />
+    <img src="captainamerica.webp" class="thumbnail-img" onclick="setImage(1)" alt="Captain America" />
+    <img src="superman.webp" class="thumbnail-img" onclick="setImage(2)" alt="Superman" />
+    <img src="spiderman.webp" class="thumbnail-img" onclick="setImage(3)" alt="Spider-Man" />
+    <img src="batman.webp" class="thumbnail-img" onclick="setImage(4)" alt="Batman" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
